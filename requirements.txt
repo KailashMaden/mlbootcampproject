@@ -4,5 +4,6 @@ flask
 ipykernel
 seaborn
 matplotlib
+scikit-learn
 
 -e .
