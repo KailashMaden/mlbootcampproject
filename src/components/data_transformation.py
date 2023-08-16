@@ -20,7 +20,7 @@ class DataTransformationConfig:
 
 class DataTransformation:
     def __init__(self):
-        self.datatransformation=DataTransformationConfig()
+        self.data_transformation_config=DataTransformationConfig()
 
     def get_data_transformation_object(self):
         try:
@@ -69,7 +69,7 @@ class DataTransformation:
             logging.info("Error in Data Trnasformation")
             raise CustomException(e,sys)
         
-    def initaite_data_transformation(self,train_path,test_path):
+    def initate_data_transformation(self,train_path,test_path):
         try:
             # Reading train and test data
             train_df = pd.read_csv(train_path)
@@ -124,6 +124,6 @@ class DataTransformation:
         
 if __name__=='__main__':
      obj=DataIngestion()
-     train_data_path,test_data_path=obj.initiate_data_ingestion()
+     train_data_path,test_data_path=obj.initate_data_ingestion()
      data_transformation = DataTransformation()
-     train_arr,test_arr,_=data_transformation.initaite_data_transformation(train_data_path,test_data_path)
+     train_arr,test_arr,_=data_transformation.initate_data_transformation(train_data_path,test_data_path)

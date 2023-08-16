@@ -8,21 +8,21 @@ from sklearn.model_selection import train_test_split
 
 
 class DataIngestionConfig():
-    train_data_path=os.path.join("artifact", "train.csv")
-    test_data_path=os.path.join("artifact", "test.csv")
-    raw_data_path=os.path.join("artifact", "raw.csv")
+    train_data_path=os.path.join("artifacts", "train.csv")
+    test_data_path=os.path.join("artifacts", "test.csv")
+    raw_data_path=os.path.join("artifacts", "raw.csv")
 
 class DataIngestion():
     def __init__(self):
-        self.ingestion.config=DataIngestionConfig()
+        self.ingestion_config=DataIngestionConfig()
 
     def initate_data_ingestion(self):
         logging.info("Starting data ingestion")
         try:
-           df=pd.read_csv(os.join.path("notebook/cleandata.csv"))
+           df=pd.read_csv("https://raw.githubusercontent.com/sunnysavita10/ML_Project_With_ContinuesTraining/main/notebooks/data/gemstone.csv")
            logging.info("raw data reading complete")
 
-           os.makedir(os.path.dirname(self.ingestion_config.raw_data_path),exist_ok=True)
+           os.makedirs(os.path.dirname(self.ingestion_config.raw_data_path),exist_ok=True)
 
            df.to_csv(self.ingestion_config.raw_data_path)
 
@@ -41,9 +41,12 @@ class DataIngestion():
                self.ingestion_config.test_data_path
            )
 
-
-
-
         except Exception as ex:
             raise Exception
+
+if __name__=="__main__":
+        data_ingestion=DataIngestion()
+        data_ingestion.initate_data_ingestion()
+
+
 
